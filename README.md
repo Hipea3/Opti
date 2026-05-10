@@ -12,51 +12,49 @@ El Toolkit está organizado por módulos para que puedas aplicarlos de forma seg
 | :--- | :--- | :--- |
 | `00_INICIO_SEGURIDAD` | **Protección** | Crea un Punto de Restauración y respaldo del arranque (BCD). |
 | `01_ENERGIA_Y_CPU` | **Rendimiento** | Desbloquea planes de energía ocultos y evita el Core Parking. |
-| `02_LATENCIA_KERNEL` | **Input Lag** | Optimiza los temporizadores del sistema (TSC) y prioridades MSI. |
+| `02_LATENCIA_KERNEL` | **Input Lag** | Optimización de temporizadores (TSC Nativo) y prioridades MSI. |
 | `03_SISTEMA_Y_REGISTRO` | **Debloat** | Elimina telemetría y ajusta la prioridad de GPU en el registro. |
 | `04_RED_Y_PING` | **Conectividad** | Aplica el Algoritmo de Nagle y limpieza de caché DNS. |
 | `05_PRUEBAS_FINALES` | **Benchmark** | Herramientas para medir latencia DPC y estabilidad de red. |
 
 ---
 
-## 🛠️ Requisitos Previos
+## 🛠️ Requisitos y Software Recomendado
 
+### Requisitos Obligatorios
 * **Sistema Operativo:** Windows 10 u 11 (Versiones Pro recomendadas).
-* **Permisos:** Todos los archivos `.bat` y herramientas externas **deben ejecutarse como Administrador**.
-* **Hardware:** Ideal para placas base B450/B550/X570 y procesadores Ryzen 5000.
+* **Permisos:** Todos los archivos `.bat` **deben ejecutarse como Administrador**.
+* **Hardware:** Optimizado para placas base B450/B550/X570 y procesadores Ryzen 5000.
+
+### Software Opcional (Recomendado)
+Para un control más granular, recomiendo el uso de las siguientes aplicaciones. **Su uso es totalmente opcional** y no es estrictamente necesario para que el Toolkit funcione:
+* **QuickCPU:** Ideal para monitorear el estado de los núcleos en tiempo real y gestionar la limpieza de la memoria RAM (Standby List). Es una excelente herramienta si deseas fijar manualmente el rendimiento del procesador al 100%.
+* **Intelligent Standby List Cleaner (ISLC):** Una alternativa ligera para asegurar que el *Timer Resolution* se mantenga en 0.5ms constantes.
 
 ---
 
 ## 🚀 Guía de Instalación Rápida
 
-1. **Seguridad primero:** Entra en `00_INICIO_SEGURIDAD` y ejecuta el script de punto de restauración.
-2. **Energía:** En `01_ENERGIA_Y_CPU`, ejecuta el `.bat` para activar el plan **Máximo Rendimiento**. Selecciónalo en tu Panel de Control.
-3. **Latencia:** Usa el script en `02_LATENCIA_KERNEL` para optimizar el reloj del sistema.
-4. **Limpieza:** Ejecuta el script de Chris Titus en `03_SISTEMA_Y_REGISTRO` para hacer el debloat masivo.
-5. **Red:** Aplica los ajustes de la carpeta `04` para estabilizar tu ping en juegos competitivos.
+1. **Seguridad primero:** Entra en `00_INICIO_SEGURIDAD` y ejecuta el script de punto de restauración. **No omitas este paso.**
+2. **Energía:** En `01_ENERGIA_Y_CPU`, ejecuta el `.bat` para activar el plan **Máximo Rendimiento**. *(Aquí puedes usar QuickCPU opcionalmente para validar que los cores no entren en Parking)*.
+3. **Latencia de Kernel:** El script en `02_LATENCIA_KERNEL` limpia las anulaciones del reloj del sistema para priorizar el **TSC Nativo** del procesador, reduciendo el ruido en el input del mouse.
+4. **Limpieza de Sistema:** Usa las herramientas de la carpeta `03` para eliminar telemetría y basura de Windows que consume ciclos de CPU.
+5. **Optimización de Red:** Aplica los ajustes de la carpeta `04` para estabilizar el envío de paquetes (útil en SimRacing y Shooters).
 
 ---
 
-## 📊 ¿Cómo medir los resultados?
+## 📊 Validación de Resultados
 
-No confíes solo en tu percepción ("memoria muscular"). Usa las herramientas de la carpeta `05`:
-* **LatencyMon:** Verifica que tu latencia DPC esté por debajo de los 500μs.
-* **CapFrameX:** Analiza que tus "1% Low FPS" hayan subido, eliminando el stuttering.
-* **MouseTester:** Comprueba la consistencia de tu sensor tras los ajustes de Kernel.
+Usa las herramientas de la carpeta `05` para comprobar la mejoría:
+* **LatencyMon:** Verifica que tu latencia DPC se mantenga estable.
+* **CapFrameX:** Analiza la mejora en los "1% Low FPS" (reducción de stuttering).
+* **MouseTester:** Comprueba la consistencia de tu sensor con el nuevo reloj de kernel.
 
 ---
 
 ## ⚠️ Descargo de Responsabilidad (Disclaimer)
 
-Este toolkit realiza modificaciones profundas en el registro y el arranque de Windows. Aunque están basadas en estándares de la comunidad competitiva, **el uso de este software es bajo tu propio riesgo**. No me hago responsable por inestabilidades del sistema si no se creó un punto de restauración previo.
+Este toolkit realiza modificaciones profundas en el registro y el arranque de Windows. El uso de este software es bajo tu propio riesgo. Asegúrate siempre de tener un respaldo de tus datos antes de comenzar.
 
 ---
-
-## 🤝 Créditos y Referencias
-
-* **Chris Titus Tech:** Por la increíble herramienta de debloat.
-* **Guru3D:** Por el soporte de MSI Mode Utility.
-* **Comunidad de Reddit (r/Argaming & r/PCMasterRace):** Por las guías de optimización de temporizadores.
-
----
-*Desarrollado con ❤️ para la comunidad Gaming y SimRacing.*
+*Desarrollado para la comunidad Gaming y SimRacing.*
