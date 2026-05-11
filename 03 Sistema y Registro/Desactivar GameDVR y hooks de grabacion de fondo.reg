@@ -1,6 +1,0 @@
-Windows Registry Editor Version 5.00
-
-; Desactivar GameDVR y hooks de grabacion de fondo (Evita stuttering)
-[HKEY_CURRENT_USER\System\GameConfigStore]
-"GameDVR_Enabled"=dword:00000000
-"GameDVR_FSEBehaviorMode"=dword:00000002
